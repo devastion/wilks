@@ -1,6 +1,6 @@
 {
   "name": "wilks",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Calculate wilks coefficient. This library includes the old version and the new 2020 version of wilks formula.",
   "type": "module",
   "main": "dist/wilks.cjs.js",
