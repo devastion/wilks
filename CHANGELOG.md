@@ -1,3 +1,5 @@
+## [0.1.3](https://github.com/devastion/wilks/compare/0.1.2...0.1.3) (2024-01-05)
+
 ## [0.1.2](https://github.com/devastion/wilks/compare/0.1.1...0.1.2) (2024-01-05)
 
 ### Bug Fixes
