@@ -4,6 +4,7 @@ import {
   maleValues2020,
   femaleValues2020,
 } from "../constants/coefficients";
+import type { Gender } from "../types/gender";
 
 export function calculateCoefficient(
   gender: Gender,

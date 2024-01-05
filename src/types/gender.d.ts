@@ -1,1 +1,0 @@
-type Gender = "m" | "f";

@@ -1,5 +1,7 @@
 import { calculateCoefficient } from "../../utils/calculateCoefficients";
 import { imperial } from "../../constants/imperial";
+import type { Gender } from "../../types/gender";
+import type { Unit } from "../../types/unit";
 export function calculateWilksPoints(
   gender: Gender,
   bodyWeight: number,
