@@ -2,6 +2,13 @@
   "name": "wilks",
   "version": "0.1.2",
   "description": "Calculate wilks coefficient. This library includes the old version and the new 2020 version of wilks formula.",
+  "keywords": [
+    "wilks",
+    "wilks score",
+    "wilks points",
+    "calculator",
+    "calculate"
+  ],
   "type": "module",
   "main": "dist/wilks.cjs.js",
   "module": "dist/wilks.esm.js",
