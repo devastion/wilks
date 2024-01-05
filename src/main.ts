@@ -1,1 +1,1 @@
-export { wilks } from "./wilks";
+export { calculateWilksPoints } from "./lib/calculateWilksPoints/calculateWilksPoints";
