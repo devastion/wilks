@@ -1,0 +1,23 @@
+import { calculateWilksPoints } from "./calculateWilksPoints";
+
+describe("Testing original version", () => {
+  test("male and metric unit", () => {
+    const result = calculateWilksPoints("m", 89.9, 1022.5, "metric", false);
+    expect(result).toBe(653.13);
+  });
+
+  test("male and imperial unit", () => {
+    const result = calculateWilksPoints("m", 198.2, 2254.2, "imperial", false);
+    expect(result).toBe(653.13);
+  });
+
+  test("female and metric unit", () => {
+    const result = calculateWilksPoints("f", 84.4, 702.5, "metric", false);
+    expect(result).toBe(624.97);
+  });
+
+  test("female and imperial unit", () => {
+    const result = calculateWilksPoints("f", 186.1, 1548.7, "imperial", false);
+    expect(result).toBe(624.97);
+  });
+});

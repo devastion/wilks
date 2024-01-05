@@ -20,7 +20,7 @@ export default [
       {
         file: pkg.browser,
         format: "umd",
-        name: "RollupTsLibTemplate",
+        name: "Wilks",
       },
     ],
     plugins: [resolve(), commonjs(), typescript({ tsconfig: "tsconfig.json" })],
@@ -29,7 +29,7 @@ export default [
     input: "./dist/dts/main.d.ts",
     output: [
       {
-        file: "dist/wilks.d.ts",
+        file: pkg.types,
         format: "es",
       },
     ],
