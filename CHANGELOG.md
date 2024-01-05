@@ -1,3 +1,9 @@
+## [0.1.2](https://github.com/devastion/wilks/compare/0.1.1...0.1.2) (2024-01-05)
+
+### Bug Fixes
+
+- **types:** fixed types not bundling ([7d496f3](https://github.com/devastion/wilks/commit/7d496f393b0bce8f1eae4ebd27cfceffe580dc19))
+
 ## [0.1.1](https://github.com/devastion/wilks/compare/0.1.0...0.1.1) (2024-01-05)
 
 ### Features
