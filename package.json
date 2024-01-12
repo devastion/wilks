@@ -10,6 +10,10 @@
     "calculate"
   ],
   "type": "module",
+  "main": "dist/wilks.cjs.js",
+  "module": "dist/wilks.esm.js",
+  "browser": "dist/wilks.umd.js",
+  "types": "dist/wilks.d.ts",
   "files": [
     "dist/wilks.cjs.js",
     "dist/wilks.esm.js",
@@ -24,7 +28,6 @@
       "default": "./dist/wilks.umd.js"
     }
   },
-  "types": "./dist/wilks.d.ts",
   "scripts": {
     "dev": "tsx watch ./src/debug.ts",
     "dev:rollup": "rollup -c -w",
