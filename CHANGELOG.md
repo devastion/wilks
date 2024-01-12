@@ -1,3 +1,11 @@
+## [0.3.0](https://github.com/devastion/wilks/compare/0.2.1...0.3.0) (2024-01-12)
+
+### Bug Fixes
+
+- package types ([cb2e37a](https://github.com/devastion/wilks/commit/cb2e37a31bfb620d3664154abe36e4667ff6ea3a))
+- **package:** exports ([0568f00](https://github.com/devastion/wilks/commit/0568f009fbbb8558926b4d525458144fd5375d62))
+- **package:** fix package.json ([033a882](https://github.com/devastion/wilks/commit/033a882a336255ee657bdb01f87100a3eb95ca3a))
+
 ## [0.2.1](https://github.com/devastion/wilks/compare/0.2.0...0.2.1) (2024-01-12)
 
 ### Bug Fixes
