@@ -24,6 +24,7 @@
       "default": "./dist/wilks.umd.js"
     }
   },
+  "types": "./dist/wilks.d.ts",
   "scripts": {
     "dev": "tsx watch ./src/debug.ts",
     "dev:rollup": "rollup -c -w",
