@@ -1,3 +1,9 @@
+## [0.2.1](https://github.com/devastion/wilks/compare/0.2.0...0.2.1) (2024-01-12)
+
+### Bug Fixes
+
+- **types:** use inline types ([72c6722](https://github.com/devastion/wilks/commit/72c6722ceebab12c5a5d50d1e6e12a556e4b395b))
+
 ## [0.2.0](https://github.com/devastion/wilks/compare/0.1.3...0.2.0) (2024-01-12)
 
 ## [0.1.3](https://github.com/devastion/wilks/compare/0.1.2...0.1.3) (2024-01-05)
