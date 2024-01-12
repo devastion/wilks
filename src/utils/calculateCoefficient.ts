@@ -4,10 +4,9 @@ import {
   maleValues,
   maleValuesUpdated,
 } from "../constants";
-import type { Gender } from "../types";
 
 export function calculateCoefficient(
-  gender: Gender,
+  gender: "m" | "f",
   bodyWeight: number,
   updatedVersion = false,
 ) {

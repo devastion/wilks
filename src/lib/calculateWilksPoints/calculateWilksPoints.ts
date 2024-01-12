@@ -1,12 +1,10 @@
 import { calculateCoefficient, convertPresicion } from "../../utils";
 
-import type { Gender, Unit } from "../../types";
-
 export function calculateWilksPoints(
-  gender: Gender,
+  gender: "m" | "f",
   bodyWeight: number,
   total: number,
-  unit: Unit,
+  unit: "metric" | "imperial",
   updatedVersion = false,
 ) {
   const bodyWeightParsed = convertPresicion(bodyWeight, 1, unit === "imperial");
@@ -16,5 +14,7 @@ export function calculateWilksPoints(
     totalParsed *
     calculateCoefficient(gender, bodyWeightParsed, updatedVersion);
 
-  return convertPresicion(wilksPoints, 2);
+  const result = convertPresicion(wilksPoints, 2);
+
+  return result;
 }
