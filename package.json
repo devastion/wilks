@@ -21,7 +21,8 @@
     "dist/wilks.d.ts"
   ],
   "scripts": {
-    "dev": "rollup -c -w",
+    "dev": "tsx watch ./src/debug.ts",
+    "dev:rollup": "rollup -c -w",
     "build": "rollup -c",
     "prebuild": "rm -rf dist/",
     "format": "prettier -uw --cache . && git update-index --again",
@@ -58,6 +59,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.6",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
@@ -74,6 +76,7 @@
     "rollup-plugin-dts": "^6.1.0",
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.2",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3",
     "wilks": "^0.1.3"
   }

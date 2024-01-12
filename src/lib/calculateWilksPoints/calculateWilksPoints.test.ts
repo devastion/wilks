@@ -6,6 +6,16 @@ describe("Testing original version", () => {
     expect(result).toBe(653.13);
   });
 
+  test("male and metric unit", () => {
+    const result = calculateWilksPoints("m", 174.1, 1127.5, "metric", false);
+    expect(result).toBe(610.06);
+  });
+
+  test("male and imperial unit", () => {
+    const result = calculateWilksPoints("m", 155.3, 1090, "metric", false);
+    expect(result).toBe(600.14);
+  });
+
   test("male and imperial unit", () => {
     const result = calculateWilksPoints("m", 198.2, 2254.2, "imperial", false);
     expect(result).toBe(653.13);
@@ -22,7 +32,7 @@ describe("Testing original version", () => {
   });
 });
 
-describe("Testing 2020 version", () => {
+describe("Testing Updated Version", () => {
   test("male and metric unit", () => {
     const result = calculateWilksPoints("m", 89.9, 1022.5, "metric", true);
     expect(result).toBe(784.7);

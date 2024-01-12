@@ -21,5 +21,10 @@ const wilksPoints = calculateWilksPoints(
 - `gender` - "m" for male and "f" for female
 - `bodyWeight (number)`
 - `total (number)`
-- `unitType` - "metric" for kgs and "imperial" for lbs
-- `isNewVersion` - `false` to use old wilks formula and `new` to use 2020 version
+- `unit` - "metric" for kgs and "imperial" for lbs
+- `updatedVersion` - `false` to use old wilks formula and `new` to use 2020 version
+
+## Roadmap
+
+- [ ] - input validation for vanilla js
+- [ ] - calculate weight to lift for target wilks point based on bodyweight

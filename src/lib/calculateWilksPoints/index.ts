@@ -1,0 +1,1 @@
+export { calculateWilksPoints } from "./calculateWilksPoints";

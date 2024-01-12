@@ -1,27 +1,20 @@
-import { calculateCoefficient } from "../../utils/calculateCoefficients";
-import { imperial } from "../../constants/imperial";
-import type { Gender } from "../../types/gender";
-import type { Unit } from "../../types/unit";
+import { calculateCoefficient, convertPresicion } from "../../utils";
+
+import type { Gender, Unit } from "../../types";
+
 export function calculateWilksPoints(
   gender: Gender,
   bodyWeight: number,
   total: number,
-  unitType: Unit = "metric",
-  isNewVersion = false,
+  unit: Unit,
+  updatedVersion = false,
 ) {
-  const bodyWeightToKG =
-    unitType === "imperial"
-      ? Number((bodyWeight /= imperial).toFixed(1))
-      : Number(bodyWeight.toFixed(1));
+  const bodyWeightParsed = convertPresicion(bodyWeight, 1, unit === "imperial");
+  const totalParsed = convertPresicion(total, 1, unit === "imperial");
 
-  const totalToKG =
-    unitType === "imperial"
-      ? Number((total /= imperial).toFixed(1))
-      : Number(total.toFixed(1));
+  const wilksPoints =
+    totalParsed *
+    calculateCoefficient(gender, bodyWeightParsed, updatedVersion);
 
-  const result =
-    Number(totalToKG) *
-    calculateCoefficient(gender, Number(bodyWeightToKG), isNewVersion);
-
-  return Number(result.toFixed(2));
+  return convertPresicion(wilksPoints, 2);
 }
