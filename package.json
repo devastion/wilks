@@ -35,7 +35,7 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
     "changeset": "changeset",
-    "lint": "eslint . && tsc --noEmit",
+    "lint": "eslint . && tsc --noEmit && pnpm run test:ci",
     "lint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky || true",
