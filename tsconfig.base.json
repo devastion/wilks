@@ -6,7 +6,6 @@
     "lib": [ "ES2022" ],
     "moduleDetection": "force",
     "useDefineForClassFields": true,
-    "rootDir": "./src",
 
     /* Modules */
     "module": "NodeNext",
@@ -14,9 +13,9 @@
     "resolveJsonModule": true,
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
+    "types": [
+      "vitest/globals",
+      "node"
     ],
 
     /* Type Checking */
