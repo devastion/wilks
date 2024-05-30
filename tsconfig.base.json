@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": [ "ES2022" ],
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+    "rootDir": "./src",
+
+    /* Modules */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
+
+    /* Type Checking */
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useUnknownInCatchVariables": true,
+
+    /* JavaScript Support */
+
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+
+    "forceConsistentCasingInFileNames": true,
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Completeness */
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+
+  }
+}

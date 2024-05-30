@@ -1,0 +1,74 @@
+{
+  "name": "wilks",
+  "version": "0.0.0",
+  "description": "Calculate wilks score. Wilks formula is primarily used in powerlifting contests to identify the best lifter across different weight classes.",
+  "keywords": [
+    "wilks",
+    "coefficient",
+    "calculator"
+  ],
+  "homepage": "https://github.com/devastion/wilks#readme",
+  "bugs": {
+    "url": "https://github.com/devastion/wilks/issues",
+    "email": "banev_dimitar@mail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devastion/wilks.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Dimitar Banev",
+    "email": "banev_dimitar@mail.com",
+    "url": "https://github.com/devastion"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "changeset": "changeset",
+    "lint": "eslint . && tsc --noEmit",
+    "lint:fix": "eslint . --fix",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky || true",
+    "prepublish": "pnpm run build",
+    "publish": "changeset publish",
+    "version": "changeset version"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.5",
+    "@eslint/js": "^9.3.0",
+    "@stylistic/eslint-plugin": "^2.1.0",
+    "@types/node": "^20.12.13",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "^9.3.0",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-functional": "^6.5.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsonc": "^2.16.0",
+    "eslint-plugin-sonarjs": "^1.0.3",
+    "globals": "^15.3.0",
+    "husky": "^9.0.11",
+    "jsonc-eslint-parser": "^2.4.0",
+    "lint-staged": "^15.2.5",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": "^18.18.0 || >=20.0.0",
+    "pnpm": ">=9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

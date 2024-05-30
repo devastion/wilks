@@ -1,0 +1,26 @@
+{
+  // use workspace's typescript version
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // eslint vscode settings
+  "eslint.format.enable": true,
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc"
+  ],
+
+  // tell vscode you are using pnpm
+  "npm.packageManager": "pnpm",
+
+  // use eslint as a formatter
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  }
+}
