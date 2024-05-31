@@ -37,7 +37,18 @@ const wilksImperial = calculateWilks("m", 204.6, 2226.6, "imperial") // 635.09
 - `total` - total lifted weight (eg. 352.5)
 - `unit` - accepts "metric" and "imperial" ("metric" by default)
 
-Checkout [test file](./tests/wilks.test.ts) for example.
+```ts
+import { calculateWilks } from "wilks";
+
+const metricWilks = calculateWilks(
+  "m", 74.8, 680, "metric",
+);
+const imperialWilks = calculateWilks(
+  "f", 168.5434, 710.9908, "imperial",
+);
+```
+
+Checkout [test file](./tests/wilks.test.ts) for more examples.
 
 ### Wilks (2020 Version)
 
@@ -48,7 +59,18 @@ Checkout [test file](./tests/wilks.test.ts) for example.
 - `total` - total lifted weight (eg. 352.5)
 - `unit` - accepts "metric" and "imperial" ("metric" by default)
 
-Checkout [test file](./tests/wilks2020.test.ts) for example.
+```ts
+import { calculateWilks } from "wilks/2020";
+
+const metricWilks = calculateWilks(
+  "m", 74.8, 680, "metric",
+);
+const imperialWilks = calculateWilks(
+  "f", 168.5434, 710.9908, "imperial",
+);
+```
+
+Checkout [test file](./tests/wilks2020.test.ts) for more examples.
 
 ## 📍 Roadmap
 

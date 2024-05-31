@@ -34,7 +34,7 @@ export function calculateCoefficient(
  * Converts imperial to metric unit.
  *
  * @export
- * @param {number} lb
+ * @param {number} lb - weight in pounds
  * @return {number}
  *
  * @example
