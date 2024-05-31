@@ -4,7 +4,8 @@ Calculate wilks score. Wilks formula is primarily used in powerlifting contests 
 
 > [!NOTE]
 > The formula is tested against real results from WRPF meet.  
-> Works best in metric units. Although there should be no difference if you use imperial units as well.
+> Works best in metric units. Although there should be no difference if you use imperial units as well.  
+> The result may differ from some websites, but this is because they round to second decimal for all calculations, not just the result. This make the formula less accurate.
 
 ## 🚀 Quick Start
 

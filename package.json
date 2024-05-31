@@ -23,6 +23,14 @@
     "url": "https://github.com/devastion"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js"
+    },
+    "./2020": {
+      "default": "./dist/wilks2020.js"
+    }
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [

@@ -8,7 +8,7 @@ export const maleValues = [
   -0.00113732,
   7.01863 * Math.pow(10, -6),
   -1.291 * Math.pow(10, -8),
-];
+] as const;
 
 /**
  * Original version values for female.
@@ -20,4 +20,28 @@ export const femaleValues = [
   -0.00930733913,
   4.731582 * Math.pow(10, -5),
   -9.054 * Math.pow(10, -8),
-];
+] as const;
+
+/**
+ * 2020 version values for male
+ */
+export const maleValues2020 = [
+  47.46178854,
+  8.472061379,
+  0.07369410346,
+  -0.001395833811,
+  7.07665973070743 * Math.pow(10, -6),
+  -1.20804336482315 * Math.pow(10, -8),
+] as const;
+
+/**
+ * 2020 version values for female
+ */
+export const femaleValues2020 = [
+  -125.4255398,
+  13.71219419,
+  -0.03307250631,
+  -0.001050400051,
+  9.38773881462799 * Math.pow(10, -6),
+  -2.3334613884954 * Math.pow(10, -8),
+] as const;

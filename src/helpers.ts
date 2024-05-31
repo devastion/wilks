@@ -1,5 +1,3 @@
-import { maleValues, femaleValues } from "./constants.js";
-
 /**
  * Calculate coefficient. Bodyweight unit type can be metric or
  * imperial.
@@ -7,14 +5,18 @@ import { maleValues, femaleValues } from "./constants.js";
  * @export
  * @param {("m" | "f")} gender
  * @param {number} bodyWeight
+ * @param {readonly number[]} maleValues
+ * @param {readonly number[]} femaleValues
  * @return {number}
  *
  * @example
  *
- *    calculateCoefficient("m", 100) // kilograms
- *    calculateCoefficient("f", 123) // pounds
+ *    calculateCoefficient("m", 100, maleValues, femaleValues) // kilograms
+ *    calculateCoefficient("f", 123, maleValues, femaleValues) // pounds
  */
-export function calculateCoefficient(gender: "m" | "f", bodyWeight: number): number {
+export function calculateCoefficient(
+  gender: "m" | "f", bodyWeight: number, maleValues: readonly number[], femaleValues: readonly number[],
+): number {
   const values = gender === "m"
     ? maleValues
     : femaleValues;
