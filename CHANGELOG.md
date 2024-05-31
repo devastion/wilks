@@ -1,5 +1,15 @@
 # wilks
 
+## 1.1.0
+
+### Minor Changes
+
+- [`6fc3b1c`](https://github.com/devastion/wilks/commit/6fc3b1cee8c450a96e2e2918720a0799a8ffe04f) Thanks [@devastion](https://github.com/devastion)! - Added 2020 wilks formula
+
+### Patch Changes
+
+- [`e05188f`](https://github.com/devastion/wilks/commit/e05188fc34d7062683c1b1e72cf273cae3f6cf81) Thanks [@devastion](https://github.com/devastion)! - Added tests for calculateWilks function
+
 ## 1.0.0
 
 ### Major Changes
