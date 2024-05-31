@@ -31,3 +31,9 @@ const wilksImperial = calculateWilks("m", 204.6, 2226.6, "imperial") // 635.09
 
 > [!CAUTION]
 > Use the same unit type for bodyweight and total.
+
+## 📍 Roadmap
+
+- [ ] Wilks Formula 2020 Edition
+- [ ] Dots Calculator
+- [ ] IPF GL Points Calculator
