@@ -54,7 +54,6 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky || true",
     "prepublish": "pnpm run build",
-    "publish": "pnpm publish",
     "test": "vitest",
     "test:ci": "vitest run",
     "test:watch": "vitest watch",
