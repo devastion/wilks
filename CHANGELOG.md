@@ -1,5 +1,11 @@
 # wilks
 
+## 1.1.1
+
+### Patch Changes
+
+- [`1114d4b`](https://github.com/devastion/wilks/commit/1114d4b7991f620efc070f4b4634b6a9d7458f2a) Thanks [@devastion](https://github.com/devastion)! - Added CommonJS support
+
 ## 1.1.0
 
 ### Minor Changes
