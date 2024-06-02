@@ -1,9 +1,9 @@
 <div align="center">
-  <a href="https://www.npmjs.com/package/wilks" target="_blank">
-    <h1>Wilks Calculator</h1>
-    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/wilks">
-    <img alt="NPM Version" src="https://img.shields.io/npm/v/wilks">
-  </a>
+  <h1>  
+    <a href="https://www.npmjs.com/package/wilks" target="_blank">Wilks Calculator</a>
+  </h1>
+  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/wilks">
+  <img alt="NPM Version" src="https://img.shields.io/npm/v/wilks">
 </div>
 
 <br />
