@@ -1,4 +1,12 @@
-# Wilks Calculator
+<div align="center">
+  <a href="https://www.npmjs.com/package/wilks" target="_blank">
+    <h1>Wilks Calculator</h1>
+    <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/wilks">
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/wilks">
+  </a>
+</div>
+
+<br />
 
 Calculate wilks score. Wilks formula is primarily used in powerlifting contests to identify the best lifter across different weight classes.
 
@@ -15,8 +23,8 @@ npm i wilks
 
 ```ts
 import { calculateWilks } from "wilks";
-// 2020 version
-// import { calculateWilks } from "wilks/2020";
+// to use 2020 version import from "wilks/2020"
+import { calculateWilks } from "wilks/2020";
 
 // metric units by default
 const wilks = calculateWilks("f", 53.2, 352.5); // 431.73
