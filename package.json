@@ -25,14 +25,18 @@
   "type": "module",
   "exports": {
     ".": {
-      "default": "./dist/index.js"
+      "types": "./dist/types/wilks.d.ts",
+      "import": "./dist/esm/wilks.js",
+      "require": "./dist/cjs/wilks.js"
     },
     "./2020": {
-      "default": "./dist/wilks2020.js"
+      "types": "./dist/types/wilks2020.d.ts",
+      "import": "./dist/esm/wilks2020.js",
+      "require": "./dist/cjs/wilks2020.js"
     }
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/wilks.js",
+  "module": "./dist/esm/wilks.js",
   "files": [
     "CHANGELOG.md",
     "LICENSE.md",
@@ -41,7 +45,9 @@
     "package.json"
   ],
   "scripts": {
-    "build": "tsc -p ./tsconfig.build.json",
+    "build": "rm -rf ./dist && pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "build:esm": "tsc -p ./tsconfig.esm.json",
     "changeset": "changeset",
     "lint": "eslint . && tsc --noEmit && pnpm run test:ci",
     "lint:fix": "eslint . --fix",

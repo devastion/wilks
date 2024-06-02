@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "resolveJsonModule": false,
+    "resolvePackageJsonExports": false,
+    "resolvePackageJsonImports": false,
+    "outDir": "./dist/cjs",
+    "verbatimModuleSyntax": false
+  },
+  "include": [ "src" ]
+}
