@@ -13,10 +13,7 @@
     "resolveJsonModule": true,
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
-    "types": [
-      "vitest/globals",
-      "node"
-    ],
+    "types": [ "node" ],
 
     /* Type Checking */
     "strict": true,

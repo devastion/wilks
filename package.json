@@ -49,14 +49,13 @@
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
     "build:esm": "tsc -p ./tsconfig.esm.json",
     "changeset": "changeset",
-    "lint": "eslint . && tsc --noEmit && pnpm run test:ci",
+    "lint": "eslint . && tsc --noEmit && pnpm run test",
     "lint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky || true",
     "prepublish": "pnpm run build",
-    "test": "vitest",
-    "test:ci": "vitest run",
-    "test:watch": "vitest watch",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:watch": "node --import tsx --test --watch tests/*.test.ts",
     "version": "changeset version"
   },
   "devDependencies": {
@@ -74,13 +73,12 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-sonarjs": "^1.0.3",
-    "eslint-plugin-vitest": "^0.5.4",
     "globals": "^15.3.0",
     "husky": "^9.0.11",
     "jsonc-eslint-parser": "^2.4.0",
     "lint-staged": "^15.2.5",
-    "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
   },
   "engines": {
     "node": "^18.18.0 || >=20.0.0",

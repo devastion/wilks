@@ -6,7 +6,6 @@ import eslintPluginFunctional from "eslint-plugin-functional";
 import eslintPluginImport from "eslint-plugin-import";
 import eslintPluginJsonc from "eslint-plugin-jsonc";
 import eslintPluginSonarjs from "eslint-plugin-sonarjs";
-import eslintPluginVitest from "eslint-plugin-vitest";
 import globals from "globals";
 import eslintParserJsonc from "jsonc-eslint-parser";
 
@@ -264,7 +263,6 @@ const eslintConfig = [
       jsonc: eslintPluginJsonc,
       sonarjs: eslintPluginSonarjs,
       functional: eslintPluginFunctional,
-      vitest: eslintPluginVitest,
     },
     rules: {
       ...eslintPluginJs.configs.recommended.rules,
@@ -787,11 +785,7 @@ const eslintConfig = [
   },
   {
     files: [ "tests/**" ],
-    languageOptions: { globals: { ...eslintPluginVitest.environments.env.globals } },
-    rules: {
-      ...eslintPluginVitest.configs.recommended.rules,
-      ...eslintPluginFunctional.configs.off.rules,
-    },
+    rules: { ...eslintPluginFunctional.configs.off.rules },
   },
 ];
 

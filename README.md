@@ -1,6 +1,6 @@
 <div align="center">
   <h1>  
-    <a href="https://www.npmjs.com/package/wilks" target="_blank">Wilks Calculator</a>
+    <a href="https://www.npmjs.com/package/wilks">Wilks Calculator</a>
   </h1>
   <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/wilks">
   <img alt="NPM Version" src="https://img.shields.io/npm/v/wilks">
