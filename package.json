@@ -1,0 +1,78 @@
+{
+  "name": "wilks",
+  "version": "2.0.0",
+  "description": "Calculate wilks score, dots, one rep max and more. Wilks formula and Dots are primarily used in powerlifting contests to identify the best lifter across different weight classes.",
+  "keywords": [
+    "wilks",
+    "dots",
+    "1rm",
+    "onerepmax",
+    "coefficient",
+    "calculator"
+  ],
+  "homepage": "https://github.com/devastion/wilks#readme",
+  "bugs": {
+    "url": "https://github.com/devastion/wilks/issues",
+    "email": "banev_dimitar@mail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devastion/wilks.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Dimitar Banev",
+    "email": "banev_dimitar@mail.com",
+    "url": "https://github.com/devastion"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./utils": {
+      "default": "./dist/utils.js",
+      "types": "./dist/utils.d.ts"
+    },
+    "./wilks": {
+      "default": "./dist/wilks/index.js",
+      "types": "./dist/wilks/index.d.ts"
+    }
+  },
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "prepare": "husky || true",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@stylistic/eslint-plugin": "^5.2.0",
+    "@types/node": "^24.0.14",
+    "eslint": "^9.31.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-sonarjs": "^3.0.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0"
+  }
+}
