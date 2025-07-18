@@ -2,6 +2,7 @@ import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
 import { wilks, wilks2020 } from "../index.ts";
+import { generateTestName } from "./utils.ts";
 
 import type { Input } from "../types.ts";
 
@@ -14,19 +15,11 @@ const samples: [Input, number][] = [
   [{ bodyweight: 265.5, total: 2645.5, gender: "male", unit: "lb" }, 689.38],
   [{ bodyweight: 100, squat: 416, bench: 235, deadlift: 415, gender: "male", unit: "kg" }, 648.76],
   [{ bodyweight: 121.9, total: 1085, gender: "male", unit: "kg" }, 621.58],
-];
-
-function generateTestName(input: Input, expected: number): string {
-  if ("total" in input) {
-    return `Calculating wilks for ${input.gender} with ${input.total} total at ${input.bodyweight} using ${input.unit} (${expected})`;
-  }
-
-  return `Calculating wilks for ${input.gender} with S:${input.squat} B:${input.bench} D:${input.deadlift} at ${input.bodyweight} using ${input.unit} units (${expected})`;
-}
+] as const;
 
 test("Wilks functions with male and female samples", () => {
   samples.forEach(([input, expected]) => {
-    test(generateTestName(input, expected), () => {
+    test(generateTestName(input, expected, "wilks"), () => {
       assert.strictEqual(wilks(input), expected);
     });
   });
@@ -39,7 +32,7 @@ const samples2020: [Input, number][] = [
 
 test("Wilks 2020 functions with male and female samples", () => {
   samples2020.forEach(([input, expected]) => {
-    test(generateTestName(input, expected), () => {
+    test(generateTestName(input, expected, "wilks2020"), () => {
       assert.strictEqual(wilks2020(input), expected);
     });
   });
@@ -62,7 +55,7 @@ const samplesError = [
     { bodyweight: -56, total: 612.5, gender: "female", unit: "lb" },
     { name: "TypeError", message: "Bodyweight must be a number greater than 0." },
   ],
-];
+] as const;
 
 test("Wilks function throws error when invalid input", () => {
   samplesError.forEach(([input, expected]) => {

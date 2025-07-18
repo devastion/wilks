@@ -1,6 +1,6 @@
 import { coefficients } from "./constants.ts";
 
-import type { Lifter, Total, SBD, Unit } from "./types.ts";
+import type { Lifter, Total, SBD, Unit, Formulas, Competition } from "./types.ts";
 
 export function roundToDecimal(input: number, decimal: number): number {
   const factor = Math.pow(10, decimal);
@@ -16,7 +16,7 @@ export function getTotal(input: Total | SBD): number {
   return Object.values(input).reduce((a, b) => a + b, 0);
 };
 
-export function calculateCoefficient(input: Lifter, formula: "wilks" | "wilks2020" | "dots") {
+export function calculateCoefficient(input: Lifter, formula: Exclude<Formulas, "ipf" | "ipfgl">) {
   const { gender, bodyweight, unit } = input;
   const coefficient = coefficients[formula][gender];
   const bw = convertWeight(bodyweight, unit);
@@ -67,5 +67,12 @@ export function validateInput(input: Lifter & Partial<Total & SBD>) {
 
   if (errors.length) {
     throw new TypeError(errors.join(" "));
+  }
+}
+export function validateCompetition(competition: Competition) {
+  const validCompetitions = ["clpl", "clbp", "eqpl", "eqbp"];
+
+  if (typeof competition !== "string" || !validCompetitions.includes(competition)) {
+    throw new TypeError("Please enter valid competition (\"clpl\", \"clbp\", \"eqpl\", \"eqbp\")");
   }
 }

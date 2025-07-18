@@ -8,7 +8,7 @@ const convertWeightSamples: [number, number][] = [
   [265.5, 120.4],
   [119.9, 54.4],
   [147.6, 67],
-];
+] as const;
 
 test("Test lbsToKilos utility function", () => {
   convertWeightSamples.forEach(([input, expected]) => {
@@ -23,7 +23,7 @@ const roundToDecimalSamples: [[number, number], number][] = [
   [[100.456, 2], 100.46],
   [[100.056, 2], 100.06],
   [[-123.000, 2], -123.00],
-];
+] as const;
 
 test("Test roundToDecimal utility function", () => {
   roundToDecimalSamples.forEach(([input, expected]) => {

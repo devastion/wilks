@@ -2,16 +2,9 @@ import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
 import { dots } from "../index.ts";
+import { generateTestName } from "./utils.ts";
 
 import type { Input } from "../types.ts";
-
-function generateTestName(input: Input, expected: number): string {
-  if ("total" in input) {
-    return `Calculating dots for ${input.gender} with ${input.total} total at ${input.bodyweight} using ${input.unit} (${expected})`;
-  }
-
-  return `Calculating dots for ${input.gender} with S:${input.squat} B:${input.bench} D:${input.deadlift} at ${input.bodyweight} using ${input.unit} units (${expected})`;
-}
 
 const samples: [Input, number][] = [
   [{ bodyweight: 56, total: 612.5, gender: "female", unit: "kg" }, 709.96],
@@ -22,11 +15,12 @@ const samples: [Input, number][] = [
   [{ bodyweight: 265.5, total: 2645.5, gender: "male", unit: "lb" }, 688.41],
   [{ bodyweight: 100, squat: 416, bench: 235, deadlift: 415, gender: "male", unit: "kg" }, 656.14],
   [{ bodyweight: 121.9, total: 1085, gender: "male", unit: "kg" }, 619.91],
-];
+  [{ bodyweight: 86.2, total: 860, gender: "male", unit: "kg" }, 568.66],
+] as const;
 
 test("Dots function with male and female samples", () => {
   samples.forEach(([input, expected]) => {
-    test(generateTestName(input, expected), () => {
+    test(generateTestName(input, expected, "dots"), () => {
       assert.strictEqual(dots(input), expected);
     });
   });
@@ -49,7 +43,7 @@ const samplesError = [
     { bodyweight: -56, total: 612.5, gender: "female", unit: "lb" },
     { name: "TypeError", message: "Bodyweight must be a number greater than 0." },
   ],
-];
+] as const;
 
 test("Dots function throws error when invalid input", () => {
   samplesError.forEach(([input, expected]) => {

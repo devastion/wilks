@@ -1,6 +1,7 @@
-import { calculateCoefficient, convertWeight, roundToDecimal, validateInput } from "./helpers.ts";
+import { coefficients } from "./constants.ts";
+import { calculateCoefficient, convertWeight, roundToDecimal, validateCompetition, validateInput } from "./helpers.ts";
 
-import type { Input, SBD, Total } from "./types.ts";
+import type { Competition, Input, SBD, Total } from "./types.ts";
 
 const getTotal = (input: Total | SBD): number => {
   if ("total" in input) return input.total;
@@ -33,6 +34,31 @@ export function dots(input: Input): number {
   const coefficient = calculateCoefficient({ gender, bodyweight, unit }, "dots");
   const total = convertWeight(getTotal(rest), unit);
   const score = total * (500 / coefficient);
+
+  return roundToDecimal(score, 2);
+}
+
+export function ipf(input: Input, competition: Competition) {
+  validateInput(input);
+  validateCompetition(competition);
+  const { gender, bodyweight, unit, ...rest } = input;
+  const total = convertWeight(getTotal(rest), unit);
+  const bw = convertWeight(bodyweight, unit);
+  const lgbw = Math.log(bw);
+  const coefficient = coefficients.ipf[gender][competition];
+  const score = 500 + 100 * ((total - (coefficient[0] * lgbw - coefficient[1]))) / (coefficient[2] * lgbw - coefficient[3]);
+
+  return roundToDecimal(score, 2);
+}
+
+export function ipfgl(input: Input, competition: Competition) {
+  validateInput(input);
+  validateCompetition(competition);
+  const { gender, bodyweight, unit, ...rest } = input;
+  const total = convertWeight(getTotal(rest), unit);
+  const bw = convertWeight(bodyweight, unit);
+  const coefficient = coefficients.ipfgl[gender][competition];
+  const score = total * (100 / (coefficient[0] - coefficient[1] * Math.pow(Math.E, (-coefficient[2] * bw))));
 
   return roundToDecimal(score, 2);
 }

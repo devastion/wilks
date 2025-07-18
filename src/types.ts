@@ -3,5 +3,7 @@ export type Total = { total: number };
 export type Unit = "kg" | "lb";
 export type Gender = "male" | "female";
 export type Lifter = { bodyweight: number; gender: Gender; unit: Unit };
+export type Formulas = "wilks" | "wilks2020" | "dots" | "ipf" | "ipfgl";
+export type Competition = "clpl" | "clbp" | "eqpl" | "eqbp";
 
 export type Input = (Lifter & Total) | (Lifter & SBD);
