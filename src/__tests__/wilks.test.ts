@@ -44,3 +44,34 @@ test("Wilks 2020 functions with male and female samples", () => {
     });
   });
 });
+
+const samplesError = [
+  [
+    { bodyweight: 56, total: 612.5, gender: "f", unit: "lbs" },
+    { name: "TypeError", message: "Unit must be either 'kg' or 'lb'." },
+  ],
+  [
+    { bodyweight: 56, total: 612.5, gender: "fm", unit: "lb" },
+    { name: "TypeError", message: "Gender must be either 'm' or 'f'." },
+  ],
+  [
+    { bodyweight: 56, total: 612.5, gender: "fm", unit: "lb", bench: 123 },
+    { name: "TypeError", message: "Gender must be either 'm' or 'f'. Use either total or squat/bench/deadlift, not both." },
+  ],
+  [
+    { bodyweight: -56, total: 612.5, gender: "f", unit: "lb" },
+    { name: "TypeError", message: "Bodyweight must be a number greater than 0." },
+  ],
+];
+
+test("Wilks function throws error when invalid input", () => {
+  samplesError.forEach(([input, expected]) => {
+    test(`Throw error with message ${expected.message}`, () => {
+      assert.throws(() => {
+        // @ts-expect-error test wrong input validation
+        wilks(input, false);
+      },
+      expected);
+    });
+  });
+});

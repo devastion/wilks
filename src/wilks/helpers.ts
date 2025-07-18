@@ -57,6 +57,6 @@ export function validateWilksInput(input: Lifter & Partial<Total & SBD>) {
   }
 
   if (errors.length) {
-    throw new Error(errors.join(" "));
+    throw new TypeError(errors.join(" "));
   }
 }
