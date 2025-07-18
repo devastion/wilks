@@ -5,20 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run typecheck
-      - run: npm test
-
   publish:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,8 +14,18 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm test
+
+      - name: Run ESLint
+        if: success()
+        run: npm run lint
+
+      - name: Run typescript check
+        if: success()
+        run: npm run typecheck
 
       - name: Check if package version has been bumped
+        if: success()
         id: version_check
         run: |
           current_version=$(jq -r '.version' package.json)
