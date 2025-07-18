@@ -21,7 +21,7 @@ function generateTestName(input: Input, expected: number): string {
     return `Calculating wilks for ${input.gender} with ${input.total} total at ${input.bodyweight} using ${input.unit} (${expected})`;
   }
 
-  return `Calculating wilks for ${input.gender} with S:${input.squat} B:${input.bench} D:${input.deadlift} at ${input.bodyweight} using ${input.unit} units ${expected}`;
+  return `Calculating wilks for ${input.gender} with S:${input.squat} B:${input.bench} D:${input.deadlift} at ${input.bodyweight} using ${input.unit} units (${expected})`;
 }
 
 test("Wilks functions with male and female samples", () => {

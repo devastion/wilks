@@ -30,10 +30,11 @@ The module currently exports `"wilks"` and `"wilks/helpers"`. You can check the 
 ### `wilks`
 
 ```ts
-import { wilks } from "wilks";
+import { wilks, wilks2020, dots } from "wilks";
 
 const calculateWilks = wilks({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }); // 720.67
-const calculateWilks2020 = wilks({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }, true); // 847.27
+const calculateWilks2020 = wilks2020({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }); // 847.27
+const calculateDots = dots({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }); // 709.96
 ```
 
 ### `wilks/helpers`

@@ -26,3 +26,13 @@ export function wilks2020(input: Input): number {
 
   return roundToDecimal(score, 2);
 }
+
+export function dots(input: Input): number {
+  validateInput(input);
+  const { gender, bodyweight, unit, ...rest } = input;
+  const coefficient = calculateCoefficient({ gender, bodyweight, unit }, "dots");
+  const total = convertWeight(getTotal(rest), unit);
+  const score = total * (500 / coefficient);
+
+  return roundToDecimal(score, 2);
+}
