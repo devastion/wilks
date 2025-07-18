@@ -7,12 +7,14 @@ import tseslint from "typescript-eslint";
 export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked, stylistic.configs.customize({
+  tseslint.configs.stylisticTypeChecked,
+  stylistic.configs.customize({
     arrowParens: true,
     indent: 2,
     quotes: "double",
     semi: true,
     jsx: false,
+    braceStyle: "1tbs",
   }),
   importPlugin.flatConfigs.recommended,
   sonarjs.configs.recommended,
