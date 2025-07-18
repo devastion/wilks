@@ -17,63 +17,35 @@ npm i wilks
 ```
 
 ```ts
-import { wilks } from "wilks";
+import { wilks, wilks2020 } from "wilks";
 
-const calculateWilks = wilks({ total: 612.5, bodyweight: 56, gender: "f", unit: "kg" }); // 720.67
-const calculateWilks2020 = wilks({ total: 612.5, bodyweight: 56, gender: "f", unit: "kg" }, true); // 847.27
+const calculateWilks = wilks({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }); // 720.67
+const calculateWilks2020 = wilks2020({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }); // 847.27
 ```
 
 ## ⭐ Usage
 
-The module currently exports `"wilks"`, `"wilks/utils"` and `"wilks/wilks"`. You can check the [tests](./src/__tests__) to see more examples.
+The module currently exports `"wilks"` and `"wilks/helpers"`. You can check the [tests](./src/__tests__) to see more examples.
 
 ### `wilks`
 
 ```ts
 import { wilks } from "wilks";
 
-const calculateWilks = wilks({ total: 612.5, bodyweight: 56, gender: "f", unit: "kg" }); // 720.67
-const calculateWilks2020 = wilks({ total: 612.5, bodyweight: 56, gender: "f", unit: "kg" }, true); // 847.27
+const calculateWilks = wilks({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }); // 720.67
+const calculateWilks2020 = wilks({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }, true); // 847.27
 ```
 
-### `wilks/utils`
+### `wilks/helpers`
 
-Exports `roundToDecimal(input: number, decimal: number): number` and `lbsToKilos(lbs: number, decimal = 1): number`.
+Exports `roundToDecimal(input: number, decimal: number): number` and `convertWeight(weight: number, unit: "kg" | "lb", decimal = 1): number`.
 
 ```ts
-import { roundToDecimal, lbsToKilos } from "wilks/utils";
+import { roundToDecimal, convertWeight } from "wilks/helpers";
 
 console.log(roundToDecimal(123.333, 2)); // 123.33
-console.log(lbsToKilos(163.1)); // 74
-console.log(lbsToKilos(163.1, 2)); // 73.98
-```
-
-### `wilks/wilks`
-
-Exports `wilks(input: WilksInput, use2020Formula = false): number`,
-`calculateWilksCoefficient(input: Lifter, use2020Formula = false): number`, constants and types (see below).
-
-```ts
-import {
-  wilks,
-  calculateWilksCoefficient,
-  maleCoefficient, // values used in calculateWilksCoefficient
-  maleCoefficient2020, // values used in calculateWilksCoefficient
-  femaleCoefficient, // values used in calculateWilksCoefficient
-  femaleCoefficient2020, // values used in calculateWilksCoefficient
-} from "wilks/wilks";
-
-// Type definitions
-import type { SBD, Total, Lifter, WilksInput } from "wilks/wilks";
-
-const calculateWilks
-  = wilks({ total: 612.5, bodyweight: 56, gender: "f", unit: "kg" }); // 720.67
-const calculateWilks2020
-  = wilks({ total: 612.5, bodyweight: 56, gender: "f", unit: "kg" }, true); // 847.27
-const calculateCoefficient
-  = calculateWilksCoefficient({ bodyweight: "56", gender: "f", unit: "kg" }); // 424.9514...
-const calculateCoefficient2020
-  = calculateWilksCoefficient({ bodyweight: "56", gender: "f", unit: "kg" }, true); // 433.7474...
+console.log(convertWeight(163.1, "lb")); // 74
+console.log(convertWeight(163.1, "lb", 2)); // 73.98
 ```
 
 ## 📍 Roadmap

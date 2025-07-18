@@ -1,30 +1,39 @@
-import * as constants from "./constants.ts";
-import { lbsToKilos } from "../utils.ts";
+import { coefficients } from "./constants.ts";
 
-import type { Lifter, Total, SBD } from "./types.ts";
+import type { Lifter, Total, SBD, Unit } from "./types.ts";
 
-export function calculateWilksCoefficient(input: Lifter, use2020Formula = false): number {
+export function roundToDecimal(input: number, decimal: number): number {
+  const factor = Math.pow(10, decimal);
+  return Math.round(input * factor) / factor;
+}
+
+export function convertWeight(weight: number, unit: Unit, decimal = 1): number {
+  return roundToDecimal(unit === "lb" ? weight * 0.45359237 : weight, decimal);
+}
+
+export function getTotal(input: Total | SBD): number {
+  if ("total" in input) return input.total;
+  return Object.values(input).reduce((a, b) => a + b, 0);
+};
+
+export function calculateCoefficient(input: Lifter, formula: "wilks" | "wilks2020" | "dots") {
   const { gender, bodyweight, unit } = input;
-  const coefficient = {
-    m: use2020Formula ? constants.maleCoefficient2020 : constants.maleCoefficient,
-    f: use2020Formula ? constants.femaleCoefficient2020 : constants.femaleCoefficient,
-  };
+  const coefficient = coefficients[formula][gender];
+  const bw = convertWeight(bodyweight, unit);
 
-  const bw = unit === "lb" ? lbsToKilos(bodyweight) : bodyweight;
-
-  return coefficient[gender].reduce((acc, curr, idx) => {
+  return coefficient.reduce((acc, curr, idx) => {
     return idx === 0
       ? acc + curr
       : acc + (curr * Math.pow(bw, idx));
   }, 0);
 }
 
-export function validateWilksInput(input: Lifter & Partial<Total & SBD>) {
+export function validateInput(input: Lifter & Partial<Total & SBD>) {
   const { bodyweight, gender, unit, total, squat, bench, deadlift } = input;
   const errors: string[] = [];
 
   const isValidNumber = (value: unknown) => typeof value === "number" && value > 0;
-  const isValidGender = (g: unknown) => g === "m" || g === "f";
+  const isValidGender = (g: unknown) => g === "male" || g === "female";
   const isValidUnit = (u: unknown) => u === "kg" || u === "lb";
 
   if (!isValidNumber(bodyweight)) {
@@ -32,7 +41,7 @@ export function validateWilksInput(input: Lifter & Partial<Total & SBD>) {
   }
 
   if (!isValidGender(gender)) {
-    errors.push("Gender must be either 'm' or 'f'.");
+    errors.push("Gender must be either 'male' or 'female'.");
   }
 
   if (!isValidUnit(unit)) {

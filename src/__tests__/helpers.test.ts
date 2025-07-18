@@ -1,9 +1,9 @@
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
-import { lbsToKilos, roundToDecimal } from "../utils.ts";
+import { convertWeight, roundToDecimal } from "../helpers.ts";
 
-const lbsToKilosSamples: [number, number][] = [
+const convertWeightSamples: [number, number][] = [
   [163.1, 74],
   [265.5, 120.4],
   [119.9, 54.4],
@@ -11,9 +11,9 @@ const lbsToKilosSamples: [number, number][] = [
 ];
 
 test("Test lbsToKilos utility function", () => {
-  lbsToKilosSamples.forEach(([input, expected]) => {
+  convertWeightSamples.forEach(([input, expected]) => {
     test(`${input} lbs should convert to ${expected}kgs`, () => {
-      assert.strictEqual(lbsToKilos(input), expected);
+      assert.strictEqual(convertWeight(input, "lb"), expected);
     });
   });
 });

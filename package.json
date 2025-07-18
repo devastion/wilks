@@ -31,13 +31,9 @@
       "default": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./utils": {
-      "default": "./dist/utils.js",
-      "types": "./dist/utils.d.ts"
-    },
-    "./wilks": {
-      "default": "./dist/wilks/index.js",
-      "types": "./dist/wilks/index.d.ts"
+    "./helpers": {
+      "default": "./dist/helpers.js",
+      "types": "./dist/helpers.d.ts"
     }
   },
   "files": [
