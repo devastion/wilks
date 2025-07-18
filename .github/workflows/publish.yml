@@ -40,6 +40,7 @@ jobs:
             exit 1
           else
             echo current_version=$current_version >> $GITHUB_OUTPUT
+            echo previous_version=$previous_version >> $GITHUB_OUTPUT
           fi
 
       - name: Publish to npmjs Registry
@@ -55,5 +56,6 @@ jobs:
         run: |
           git tag "v${{ steps.version_check.outputs.current_version }}"
           git push origin "v${{ steps.version_check.outputs.current_version }}"
-          release_notes=$(git log -1 --pretty=%B)
+          last_release_commit=$(git rev-list -n 1 "${{ steps.version_check.outputs.previous_version }}")
+          release_notes=$(git log --pretty=%B "${last_release_commit}...HEAD")
           gh release create "v${{ steps.version_check.outputs.current_version }}" --title "v${{ steps.version_check.outputs.current_version }}" --notes "${release_notes}"
