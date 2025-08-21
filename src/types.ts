@@ -7,3 +7,5 @@ export type Formulas = "wilks" | "wilks2020" | "dots" | "ipf" | "ipfgl";
 export type Competition = "clpl" | "clbp" | "eqpl" | "eqbp";
 
 export type Input = (Lifter & Total) | (Lifter & SBD);
+
+export type OneRepMaxFormula = "brzycki" | "epley" | "lander" | "lombardi" | "oconner";

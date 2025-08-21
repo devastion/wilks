@@ -1,3 +1,5 @@
+import type { OneRepMaxFormula } from "./types.ts";
+
 export const coefficients = {
   wilks: {
     male: [
@@ -79,4 +81,14 @@ export const coefficients = {
       eqbp: [221.82209, 357.00377, 0.02937],
     },
   },
+} as const;
+
+export const oneRepMaxFormulas: Record<OneRepMaxFormula, (weight: number, reps: number) => number> = {
+  brzycki: (weight, reps) =>
+    weight * (36 / (37 - reps)),
+  epley: (weight, reps) =>
+    weight * (1 + 0.333 * reps),
+  lander: (weight, reps) => (100 * weight) / (101.3 - (2.67123 * reps)),
+  lombardi: (weight, reps) => weight * (reps ^ 0.1),
+  oconner: (weight, reps) => weight * (1 + 0.025 * reps),
 } as const;

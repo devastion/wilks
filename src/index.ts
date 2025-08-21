@@ -1,7 +1,7 @@
-import { coefficients } from "./constants.ts";
-import { calculateCoefficient, convertWeight, roundToDecimal, validateCompetition, validateInput } from "./helpers.ts";
+import { coefficients, oneRepMaxFormulas } from "./constants.ts";
+import { calculateCoefficient, convertWeight, roundToDecimal, validateCompetition, validateInput, validateOneRepMaxInput } from "./helpers.ts";
 
-import type { Competition, Input, SBD, Total } from "./types.ts";
+import type { Competition, Input, SBD, Total, OneRepMaxFormula } from "./types.ts";
 
 const getTotal = (input: Total | SBD): number => {
   if ("total" in input) return input.total;
@@ -61,4 +61,10 @@ export function ipfgl(input: Input, competition: Competition) {
   const score = total * (100 / (coefficient[0] - coefficient[1] * Math.pow(Math.E, (-coefficient[2] * bw))));
 
   return roundToDecimal(score, 2);
+}
+
+export function oneRepMax(weight: number, reps: number, formula: OneRepMaxFormula) {
+  validateOneRepMaxInput(weight, reps, formula);
+
+  return oneRepMaxFormulas[formula](weight, reps);
 }

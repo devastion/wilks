@@ -1,6 +1,6 @@
 import { coefficients } from "./constants.ts";
 
-import type { Lifter, Total, SBD, Unit, Formulas, Competition } from "./types.ts";
+import type { Lifter, Total, SBD, Unit, Formulas, Competition, OneRepMaxFormula } from "./types.ts";
 
 export function roundToDecimal(input: number, decimal: number): number {
   const factor = Math.pow(10, decimal);
@@ -69,10 +69,34 @@ export function validateInput(input: Lifter & Partial<Total & SBD>) {
     throw new TypeError(errors.join(" "));
   }
 }
+
 export function validateCompetition(competition: Competition) {
   const validCompetitions = ["clpl", "clbp", "eqpl", "eqbp"];
 
   if (typeof competition !== "string" || !validCompetitions.includes(competition)) {
     throw new TypeError("Please enter valid competition (\"clpl\", \"clbp\", \"eqpl\", \"eqbp\")");
+  }
+}
+
+export function validateOneRepMaxInput(weight: number, reps: number, formula: OneRepMaxFormula) {
+  const errors: string[] = [];
+
+  const isValidNumber = (value: unknown) => typeof value === "number" && value > 0;
+  const validFormulas = ["brzycki", "epley", "lander", "lombardi", "oconner"];
+
+  if (isValidNumber(weight)) {
+    errors.push("Weight is invalid. Please use positive numbers.");
+  }
+
+  if (isValidNumber(reps)) {
+    errors.push("Reps is invalid. Please use positive numbers.");
+  }
+
+  if (typeof formula !== "string" || !validFormulas.includes(formula)) {
+    errors.push("Invalid formula. Please enter valid formula (\"brzycki\", \"epley\", \"lander\", \"lombardi\", \"oconner\").");
+  }
+
+  if (errors.length) {
+    throw new TypeError(errors.join(" "));
   }
 }
