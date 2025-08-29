@@ -1,7 +1,7 @@
 import { coefficients, oneRepMaxFormulas } from "./constants.ts";
 import { calculateCoefficient, convertWeight, roundToDecimal, validateCompetition, validateInput, validateOneRepMaxInput } from "./helpers.ts";
 
-import type { Competition, Input, SBD, Total, OneRepMaxFormula } from "./types.ts";
+import type { Competition, Input, SBD, Total, OneRepMaxInput } from "./types.ts";
 
 const getTotal = (input: Total | SBD): number => {
   if ("total" in input) return input.total;
@@ -63,8 +63,8 @@ export function ipfgl(input: Input, competition: Competition) {
   return roundToDecimal(score, 2);
 }
 
-export function oneRepMax(weight: number, reps: number, formula: OneRepMaxFormula) {
+export function oneRepMax(weight: OneRepMaxInput["weight"], reps: OneRepMaxInput["reps"], formula: OneRepMaxInput["formula"], round: OneRepMaxInput["round"] = 0) {
   validateOneRepMaxInput(weight, reps, formula);
 
-  return oneRepMaxFormulas[formula](weight, reps);
+  return roundToDecimal(oneRepMaxFormulas[formula](weight, reps), round);
 }

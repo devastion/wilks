@@ -9,3 +9,9 @@ export type Competition = "clpl" | "clbp" | "eqpl" | "eqbp";
 export type Input = (Lifter & Total) | (Lifter & SBD);
 
 export type OneRepMaxFormula = "brzycki" | "epley" | "lander" | "lombardi" | "oconner";
+export type OneRepMaxInput = {
+  weight: number;
+  reps: number;
+  formula: OneRepMaxFormula;
+  round: number;
+};

@@ -30,7 +30,7 @@ The module currently exports `"wilks"` and `"wilks/helpers"`. You can check the 
 ### `wilks`
 
 ```ts
-import { wilks, wilks2020, dots, ipf, ipfgl } from "wilks";
+import { wilks, wilks2020, dots, ipf, ipfgl, oneRepMax } from "wilks";
 
 const input = {
   // Use total
@@ -55,6 +55,8 @@ const calculateIpf
   = ipf({ total: 1350.4, bodyweight: 123.45, gender: "female", unit: "lb" }, "clpl"); // 1145.88
 const calculateIpfGl
   = ipfgl({ total: 612.5, bodyweight: 56, gender: "female", unit: "kg" }, "clpl"); // 145.62
+// accepts weight, reps, formula ("brzycki" | "epley" | "lander" | "lombardi" | "oconner") and round to decimal
+const calculateOneRepMax = oneRepMax(100, 10, "brzycki", 0); // 133
 ```
 
 ### `wilks/helpers`
@@ -74,4 +76,4 @@ console.log(convertWeight(163.1, "lb", 2)); // 73.98
 - [x] Wilks Formula 2020 Edition
 - [x] Dots Calculator
 - [x] IPF GL Points Calculator
-- [ ] One Rep Max Calculator
+- [x] One Rep Max Calculator

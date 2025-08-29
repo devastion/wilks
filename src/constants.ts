@@ -87,8 +87,8 @@ export const oneRepMaxFormulas: Record<OneRepMaxFormula, (weight: number, reps: 
   brzycki: (weight, reps) =>
     weight * (36 / (37 - reps)),
   epley: (weight, reps) =>
-    weight * (1 + 0.333 * reps),
+    weight * (1 + 0.0333 * reps),
   lander: (weight, reps) => (100 * weight) / (101.3 - (2.67123 * reps)),
-  lombardi: (weight, reps) => weight * (reps ^ 0.1),
+  lombardi: (weight, reps) => weight * Math.pow(reps, 0.1),
   oconner: (weight, reps) => weight * (1 + 0.025 * reps),
 } as const;

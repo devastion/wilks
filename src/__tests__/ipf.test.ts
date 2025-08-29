@@ -46,7 +46,10 @@ test("Dots function throws error when invalid input", () => {
         // @ts-expect-error test wrong input validation
         ipf(input, competition);
       },
-      expected);
+      {
+        name: expected.name,
+        message: expected.message,
+      });
     });
   });
 });

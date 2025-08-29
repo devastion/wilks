@@ -84,11 +84,11 @@ export function validateOneRepMaxInput(weight: number, reps: number, formula: On
   const isValidNumber = (value: unknown) => typeof value === "number" && value > 0;
   const validFormulas = ["brzycki", "epley", "lander", "lombardi", "oconner"];
 
-  if (isValidNumber(weight)) {
+  if (!isValidNumber(weight)) {
     errors.push("Weight is invalid. Please use positive numbers.");
   }
 
-  if (isValidNumber(reps)) {
+  if (!isValidNumber(reps)) {
     errors.push("Reps is invalid. Please use positive numbers.");
   }
 

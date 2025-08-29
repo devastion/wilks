@@ -1,6 +1,6 @@
 {
   "name": "wilks",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Calculate wilks score, dots, one rep max and more. Wilks formula and Dots are primarily used in powerlifting contests to identify the best lifter across different weight classes.",
   "keywords": [
     "wilks",
